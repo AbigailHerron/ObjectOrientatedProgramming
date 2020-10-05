@@ -2,7 +2,8 @@
  Name: Abigail Herron
  ID: S00200536
  Year: 2
-  Link to GitHub for Lab1: https://github.com/AbigailHerron/ObjectOrientatedProgramming/tree/main/Labsheet1
+ Date: 05/10/2020
+ Link to GitHub for Lab1: https://github.com/AbigailHerron/ObjectOrientatedProgramming/tree/main/Labsheet1
 
  Description: 1) Revision of Switch statements
               2) Calculates user's points based on the inputed type of grade
