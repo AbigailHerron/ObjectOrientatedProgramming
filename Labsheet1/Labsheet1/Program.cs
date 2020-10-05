@@ -61,8 +61,6 @@ namespace Labsheet1
             // Printing Results to Screen
             Console.WriteLine("\nPoints awarded :  {0}", userPoints);
 
-
-            //
         }// End Main
     }// End Class
 }// End Namespace
