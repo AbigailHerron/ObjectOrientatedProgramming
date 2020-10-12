@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*#################################################################################################################################
+ Name: Abigail Herron
+ ID: S00200536
+ Year: 2
+ Date: 12/10/2020
+
+ Description: Reading student grades from text file and appending total points to end of file
+              - Revision of Files (Learning to use File Class as opposed to Stream Reader)
+              - Documentation can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netcore-3.1
+
+ Paramenters: Grades, Points
+ #################################################################################################################################*/
+using System;
 using System.IO;
 
 namespace Labsheet2
@@ -50,11 +62,9 @@ namespace Labsheet2
                 }// end if block
 
                 totalPoints += points;
-
-                Console.WriteLine(totalPoints);
             }// end for block
 
-            // Converting totalPoints to a string value
+            // Appending totalPoints to the end of Grades.txt
             File.AppendAllText(@"C:\temp\Grades.txt", Environment.NewLine + "Total Leaving Cert Points:  "+ totalPoints.ToString());
 
             // Appending totalPoints to the end of Grades.txt
