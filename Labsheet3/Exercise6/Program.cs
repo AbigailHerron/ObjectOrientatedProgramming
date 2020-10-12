@@ -21,9 +21,9 @@ namespace Exercise6
             int[] averageScores = new int[3];
             int[,] scores = new int[3, 3]
                                 {
-                                    {3,1,5}, // [0,x]
-                                    {4,2,4},// [1,x]
-                                    {5,1,2}// [2,x]
+                                    {3,4,5}, // [0,x]
+                                    {1,2,1},// [1,x]
+                                    {5,4,2}// [2,x]
                                 };
             int score = 0;
 
