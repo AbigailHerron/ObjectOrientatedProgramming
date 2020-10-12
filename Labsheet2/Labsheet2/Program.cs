@@ -48,13 +48,17 @@ namespace Labsheet2
                 {
                     points = 0;
                 }// end if block
+
+                totalPoints += points;
+
+                Console.WriteLine(totalPoints);
             }// end for block
 
             // Converting totalPoints to a string value
-            
+            File.AppendAllText(@"C:\temp\Grades.txt", Environment.NewLine + "Total Leaving Cert Points:  "+ totalPoints.ToString());
 
             // Appending totalPoints to the end of Grades.txt
-            File.AppendAllText(@"C:\temp\Grades.txt", totalPoints.ToString());
+
 
         }// end Main()
     }// end Program
