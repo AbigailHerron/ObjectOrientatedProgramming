@@ -47,12 +47,9 @@ namespace Labsheet2
                 else
                 {
                     points = 0;
-                }
-
-                totalPoints += points;
-                Console.WriteLine(totalPoints + " " + points);
+                }// end if block
             }// end for block
 
-        }
-    }
-}
+        }// end Main()
+    }// end Program
+}// end Namespace
