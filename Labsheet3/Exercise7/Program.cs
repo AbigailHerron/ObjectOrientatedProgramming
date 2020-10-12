@@ -5,7 +5,7 @@
  Date: 12/10/2020
 
  Description:  Displays the average score rating for three different movies
-               - Main focus is 2D Arrays
+               - Main focus is 2D Arrays (Jagged Arrays)
  Parameters: MovieTitle, AverageScore, Scores
  #################################################################################################*/
 using System;
