@@ -7,7 +7,11 @@ namespace Labsheet2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Declaring Variables
+            string[] grades = new string[7];
+
+            File.WriteAllLines(@"C:\temp\Grades.txt", grades) ;
+
         }
     }
 }
