@@ -4,7 +4,6 @@
  Year: 2
  Date: 05/10/2020
  Link to GitHub for Lab1: https://github.com/AbigailHerron/ObjectOrientatedProgramming/tree/main/Labsheet1
-
  Description: 1) Revision of Switch statements
               2) Calculates user's points based on the inputed type of grade
  Parameters: User grade
@@ -60,3 +59,4 @@ namespace Labsheet1
         }// End Main
     }// End Class
 }// End Namespace
+ 
