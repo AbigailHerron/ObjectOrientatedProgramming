@@ -11,7 +11,7 @@ namespace Labsheet2
             string[] grades = File.ReadAllLines(@"C:\temp\Grades.txt");
             int totalPoints = 0, points = 0, grade = 0;
 
-            // Converting strings to ints and finding the total
+            // Converting grades to points and finding the total
             for(int i = 0; i < grades.Length; i++)
             {
                 grade = int.Parse(grades[i]);
