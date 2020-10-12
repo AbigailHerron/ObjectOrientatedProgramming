@@ -8,9 +8,50 @@ namespace Labsheet2
         static void Main(string[] args)
         {
             // Declaring Variables
-            string[] grades = new string[7];
+            string[] grades = File.ReadAllLines(@"C:\temp\Grades.txt");
+            int totalPoints = 0, points = 0, grade = 0;
 
-            File.WriteAllLines(@"C:\temp\Grades.txt", grades) ;
+            // Converting strings to ints and finding the total
+            for(int i = 0; i < grades.Length; i++)
+            {
+                grade = int.Parse(grades[i]);
+
+                if(grade > 90)
+                {
+                    points = 100;
+                }
+                else if(grade > 80)
+                {
+                    points = 88;
+                }
+                else if (grade > 70)
+                {
+                    points = 77;
+                }
+                else if (grade > 60)
+                {
+                    points = 66;
+                }
+                else if (grade > 50)
+                {
+                    points = 56;
+                }
+                else if (grade > 40)
+                {
+                    points = 46;
+                }
+                else if (grade > 30)
+                {
+                    points = 37;
+                }
+                else
+                {
+                    points = 0;
+                }
+
+                totalPoints += points;
+                Console.WriteLine(totalPoints + " " + points);
+            }// end for block
 
         }
     }
