@@ -17,6 +17,6 @@ namespace Exercise7
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-        }
-    }
-}
+        }// end Main()
+    }// end Class
+}// end Namespace
