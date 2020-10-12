@@ -9,7 +9,6 @@ namespace Labsheet2
         {
             // Declaring Variables
             string[] grades = File.ReadAllLines(@"C:\temp\Grades.txt");
-            string overall;
             int totalPoints = 0, points = 0, grade = 0;
 
             // Converting grades to points and finding the total
@@ -52,10 +51,10 @@ namespace Labsheet2
             }// end for block
 
             // Converting totalPoints to a string value
-            overall = totalPoints.ToString();
+            
 
             // Appending totalPoints to the end of Grades.txt
-            File.AppendAllLines(@"C:\temp\Grades.txt", overall);
+            File.AppendAllText(@"C:\temp\Grades.txt", totalPoints.ToString());
 
         }// end Main()
     }// end Program
