@@ -70,5 +70,5 @@ namespace Labsheet2
 
 
         }// end Main()
-    }// end Program
+    }// end Class
 }// end Namespace
