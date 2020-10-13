@@ -17,7 +17,7 @@ namespace Exercise6
         static void Main(string[] args)
         {
             // Declaring variables
-            string[] moveTitles = new string[3] {"Avengers Endgame", "Spider-Man: Far From Home", "Once Upon A Time in Hollywood"};
+            string[] movieTitles = new string[3] {"Avengers Endgame", "Spider-Man: Far From Home", "Once Upon A Time in Hollywood"};
             int[] averageScores = new int[3];
             int[,] scores = new int[3, 3]
                                 {
@@ -28,9 +28,9 @@ namespace Exercise6
             int score = 0;
 
             // Calculating averages
-            for(int i = 0; i < moveTitles.Length; i++)
+            for(int i = 0; i < 3; i++)
             {
-                for(int j = 0; j < averageScores.Length; j++)
+                for(int j = 0; j < 3; j++)
                 {
                     score += scores[i, j];
                 }
@@ -39,9 +39,9 @@ namespace Exercise6
             }// end nested for loop
 
             // Printing results to screen
-            for(int i = 0; i < moveTitles.Length; i++)
+            for(int i = 0; i < movieTitles.Length; i++)
             {
-                Console.WriteLine($"The average score for '{moveTitles[i]}' is {averageScores[i]}");
+                Console.WriteLine("The average score for '{0}' is {1:f}", movieTitles[i], averageScores[i]);
             }// end for block
 
         }// end Main()
