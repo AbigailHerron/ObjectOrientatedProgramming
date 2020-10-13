@@ -4,11 +4,12 @@
  Year: 2
  Date: 12/10/2020
 
- Description:  Records and displays the name of each player on a team
-               - Main focus is Lists
+ Description:  Produces a Report based on the sales data  of a number of stores kept in a CSV file
+               - Main focus is CSV Files (Comma Seperated Value Files)
  Parameters: PlayerName
  #################################################################################################*/
 using System;
+using System.IO;
 
 namespace Exercise9
 {
