@@ -9,7 +9,7 @@
                      and displaying their details
                   b) Making use of the methods defined in BancAccount Class
                     
- Paramenters: Car1, Car2
+ Paramenters: Car1, Car2, Bnk1, Bnk2
  #############################################################################################*/
 using System;
 
@@ -77,9 +77,6 @@ namespace Labsheet4
             // Displaying changes
             Console.WriteLine($"\nAccount: {bnk1.AccountNumber} New Balance: {bnk1.Balance}");
             Console.WriteLine($"Account: {bnk2.AccountNumber} New Balance: {bnk2.Balance}");
-
-
-
 
         }// end Main()
     }// end Class
