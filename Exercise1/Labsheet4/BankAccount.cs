@@ -45,10 +45,10 @@ namespace Labsheet4
             1) Takes a double value
             2) Removes that ammount from the Balance property of the object
         ---------*/
-        public void Witdraw(double ammount)
+        public void Withdraw(double ammount)
         {
             this.Balance -= ammount;
-        }// end Witdraw()
+        }// end Withdraw()
 
 
 
