@@ -4,8 +4,8 @@
  Date: 19/10/20
 
  Description: Basic cash register layout
- Properties: Tally, NumberOfItems
- Methods: AddItem(), ToString() (replaces normal ToString())
+ Properties: Total, NumberOfItems
+ Methods: AddItem()
  #############################################################################################*/
 using System;
 using System.Collections.Generic;
@@ -17,13 +17,28 @@ namespace TestCashRegister
     {
         /* Declaring Properties ----------------------------------------------*/
 
-        //Read Only
-        private double total { get; }
-        
-            
-        // Editable
-        public double Tally { get; set; }
-        public int NumberOfItems { get; set; }
+        // Read Only
+        public double Total { get; private set; }
+        public int NumberOfItems { get; private set; }
+
+
+
+
+
+        /* Declaring Methods -------------------------------------------------*/
+
+        /*---------
+        Method: AddItem()
+            1) Takes in a double value as the price of an item
+            2) Adds the price to the Total property
+            3) Increments the NumberOfItems property
+        ---------*/
+        public void AddItem(double price)
+        {
+            Total += price;
+            NumberOfItems++;
+        }// end AddItem()
+
 
     }// end CashRegister
 }// end TestCashRegister
