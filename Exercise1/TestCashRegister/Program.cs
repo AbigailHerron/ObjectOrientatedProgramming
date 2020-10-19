@@ -45,8 +45,6 @@ namespace TestCashRegister
             Console.WriteLine("\nCurrent tally in Cash Register 1 is: {0:f} for {1} items", reg1.Total, reg1.NumberOfItems);
             Console.WriteLine("Current tally in Cash Register 2 is: {0:f} for {1} items", reg2.Total, reg2.NumberOfItems);
 
-
-
         }// end Main()
     }// end Class
 }// end TestCashRegister
