@@ -5,6 +5,9 @@
 
  Description:  1) Creating two car objects and displaying their properties
                2) Making use of the three new Car methods defined in Car Class
+               3) a) Creating two bank_account objects using constructor 
+                     and displaying their details
+                  b) Making use of the methods defined in BancAccount Class
                     
  Paramenters: Car1, Car2
  #############################################################################################*/
@@ -49,6 +52,33 @@ namespace Labsheet4
 
             Console.WriteLine($"\nCurrent Speed: {car1.CurrentSpeed}");
             Console.WriteLine($"Current Speed: {car2.CurrentSpeed}"); // showing the difference
+
+
+
+
+            /* Exercise 3 --------------------------------------------------------------*/
+            Console.WriteLine("\n================================================\n"); // new line for neatness
+            
+            // Creating two BankAccount objects, using All constructor
+            BankAccount bnk1 = new BankAccount(853463, "John Doe", 207.00);
+            BankAccount bnk2 = new BankAccount(123456, "Emily Rose", 500.00);
+
+            // Displaying BankAccount object details
+            Console.WriteLine(bnk1.ToString());
+            Console.WriteLine("\n" + bnk2);
+
+            // Making use of the Deposit Method
+            bnk1.Deposit(103.50);
+
+
+            // Making use of the Withdraw Method
+            bnk2.Withdraw(156.99);
+
+            // Displaying changes
+            Console.WriteLine($"\nAccount: {bnk1.AccountNumber} New Balance: {bnk1.Balance}");
+            Console.WriteLine($"Account: {bnk2.AccountNumber} New Balance: {bnk2.Balance}");
+
+
 
 
         }// end Main()
