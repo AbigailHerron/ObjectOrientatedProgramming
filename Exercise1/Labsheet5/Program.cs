@@ -12,6 +12,9 @@ using System.Collections.Generic;
 
 namespace Labsheet5
 {
+    
+
+
     class Program
     {
         static void Main(string[] args)
@@ -38,9 +41,14 @@ namespace Labsheet5
         }// end Main()
 
 
+
+
         // Q6 - Create DisplayTeams method
         /*METHOD - DisplayTeams()
-                   1) */
+                   1) Prints the heading of the League Table to the screen
+                   2) Loops through a list of Team objects and displays their properties
+                      in a tabled format, using the Team classes 'DisplayTeamTable()'
+                      method */
         static void DisplayTeams(List<Team> teams)
         {
             Console.WriteLine("{0, -15}{1, -7}{2, -7}{3, -7}{4, -7}{5, -7}", "NAME", "POINTS", "WINS", "DRAWS", "LOSSES", "PLAYED");
