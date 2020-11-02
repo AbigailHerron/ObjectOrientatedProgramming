@@ -3,9 +3,10 @@
  ID: S00200536
  Year: 2
  Date: 02/11/20
+ Link to GitHub: 
 
  Description: Testing out the Team Class by making a few Team objects
- Parameters: 
+ Parameters: Team objects
  #######################################################################################*/
 using System;
 using System.Collections.Generic;
