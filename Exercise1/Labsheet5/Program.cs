@@ -38,6 +38,26 @@ namespace Labsheet5
             // Q7 - Use DisplayTeams() to display the league
             DisplayTeams(teams);
 
+            // Q10 - Update the league results using using AddResult()
+            // Note: the enum Reults is stored in the Team.cs file, before Team Class
+            //       (so in the Labsheet5 Namespace)
+            SligoRovers.AddResult(Result.Win);
+            FinnHarps.AddResult(Result.Lose);
+            FinnHarps.AddResult(Result.Draw);
+            GalwayUnited.AddResult(Result.Win);
+            Dundalk.AddResult(Result.Lose);
+
+
+            // Q11 - Display the new results
+            Console.WriteLine();// For neatness
+            DisplayTeams(teams);
+
+            // Q13 - Sort and then Reverse the teams List
+            teams.Sort();
+            teams.Reverse();
+            Console.WriteLine();// For neatness
+            DisplayTeams(teams);// Testing answer
+
         }// end Main()
 
 
