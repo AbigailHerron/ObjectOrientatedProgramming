@@ -49,7 +49,7 @@ namespace Labsheet5
         }// end Points property
 
         // Q14b - Add a Team property which is a List of Players
-
+        public List<Player> Players { get; set; }
 
 
 
@@ -113,14 +113,19 @@ namespace Labsheet5
             TeamName = "Unknown";
         }// end Constructor 1 (Default Constructor)
 
+
+
+
         // Q3a - Declare Constructor with TeamName
         /*Constructor 2: Team Name Entered
-                         1) Sets TeamName to what was passed */
-
-
+                         1) Sets TeamName to what was passed
+                         2) Creates a new List of Player objects*/
         public Team(string name)
         {
             TeamName = name;
+
+            // Q14c - Allocating space for Players property on creation
+            Players = new List<Player>();
         }// end Constructor 2 (TeamName Constructor)
 
 
