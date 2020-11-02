@@ -15,6 +15,15 @@ using System.Text;
 
 namespace Labsheet5
 {
+    // Q8 - Create an enum called Result
+    // More information on enum can be found here: https://www.tutorialsteacher.com/csharp/csharp-enum
+    enum Result
+    {
+        Win,
+        Draw,
+        Lose
+    }// end Result
+
     class Team
     {
         /*PROPERTIES ------------------------------------------------------------------------------------ */
@@ -54,7 +63,28 @@ namespace Labsheet5
         }// end DisplayTeamTable()
 
 
+        // Q9 - Create AddResult method
+        /*METHOD - AddResult()
+                   1) Increments the number of games played (Games property)
+                   2) Increments the Wins, Draws or Losses properties based on the 
+                      result passed */
+        public void AddResult(Result result)
+        {
+            Games++;
 
+            switch(result)
+            {
+                case Result.Win:
+                    Wins++;
+                    break;
+                case Result.Draw:
+                    Draws++;
+                    break;
+                case Result.Lose:
+                    Losses++;
+                    break;
+            }
+        }// end AddResult()
 
 
 
