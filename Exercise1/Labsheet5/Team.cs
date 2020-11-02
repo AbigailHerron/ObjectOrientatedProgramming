@@ -24,7 +24,8 @@ namespace Labsheet5
         Lose
     }// end Result
 
-    class Team
+    // Q12a - Implement the IComparable interface
+    class Team : IComparable
     {
         /*PROPERTIES ------------------------------------------------------------------------------------ */
             // Q1 - Create properties with private setters
@@ -87,6 +88,18 @@ namespace Labsheet5
         }// end AddResult()
 
 
+
+        // Q12b - Impletent the IComparable Interface
+        //       More on the IComparable can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable.compareto?view=netcore-3.1
+        /*METHOD - CompareTo()
+                   1) Defines which property the CompareTo method from the IComparable class
+                      should be used with Team objects 
+                   2) Compares Team objects based on their Points */
+        public int CompareTo(object obj)
+        {
+            Team that = (Team)obj;
+            return this.Points.CompareTo(that.Points);
+        }// end CompareTo()
 
 
 
