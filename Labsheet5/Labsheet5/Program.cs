@@ -3,7 +3,7 @@
  ID: S00200536
  Year: 2
  Date: 02/11/20
- Link to GitHub: 
+ Link to GitHub: https://github.com/AbigailHerron/ObjectOrientatedProgramming/tree/main/Labsheet5
 
  Description: Testing out the Team Class by making a few Team objects
  Parameters: Team objects
