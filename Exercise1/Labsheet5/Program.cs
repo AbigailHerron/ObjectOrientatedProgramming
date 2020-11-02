@@ -59,6 +59,22 @@ namespace Labsheet5
             Console.WriteLine();// For neatness
             DisplayTeams(teams);// Testing answer
 
+
+            // Q14d - Add a few Players to any team and display them
+            Dundalk.Players.Add(new Player() { PlayerName = "John McManus", Position = "Defender" });
+            Dundalk.Players.Add(new Player() { PlayerName = "Jamie Sanders", Position = "Defender" });
+            Dundalk.Players.Add(new Player() { PlayerName = "Seamus O'Loughlin", Position = "Forward" });
+            Dundalk.Players.Add(new Player() { PlayerName = "Rory Gallagher", Position = "Goalkeeper" });
+            Dundalk.Players.Add(new Player() { PlayerName = "Adrian O'Sea", Position = "Bench" });
+
+            Console.WriteLine("\nDundalk Teamsheet");
+            foreach (Player player in Dundalk.Players)
+            {
+                Console.WriteLine(player.ToString());
+            }
+
+
+
         }// end Main()
 
 
