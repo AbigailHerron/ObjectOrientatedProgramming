@@ -18,8 +18,8 @@ namespace Labsheet5
     class Player
     {
         /*PROPERTIES ------------------------------------------------------------------------------------ */
-        string PlayerName { get; set; }
-        string Position { get; set; }
+        public string PlayerName { get; set; }
+        public string Position { get; set; }
 
         /*METHODS --------------------------------------------------------------------------------------- */
         /*METHOD - ToString()
