@@ -72,9 +72,6 @@ namespace Labsheet5
             {
                 Console.WriteLine(player.ToString());
             }
-
-
-
         }// end Main()
 
 
