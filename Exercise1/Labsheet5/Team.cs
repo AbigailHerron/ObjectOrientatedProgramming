@@ -6,6 +6,7 @@
 
  Description: A blueprint for a Team object
  Properties: TeamName, Games, Wins, Draws, Losses, Points
+ Methods: DisplayTeamTable(), AddResult()
  Constructors: 1) Default (Team();)
                2) With TeamName (Team(Name Of Team);)
  #######################################################################################*/
@@ -47,6 +48,7 @@ namespace Labsheet5
             }
         }// end Points property
 
+        // Q14b - Add a Team property which is a List of Players
 
 
 
