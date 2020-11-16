@@ -14,7 +14,7 @@ using System.Text;
 
 namespace Labsheet5
 {
-    class Game
+    abstract class Game
     {
         /*PROPERTIES-------------------------------------------------------------------------------------*/
         public readonly string name;
@@ -43,10 +43,8 @@ namespace Labsheet5
         /*Method: UpdatePrice()
                   1) Takes in a decimal value (preferably one that represents a percentage)
                   2) Amends the Price of the object by the input decimal value */
-        public virtual void UpdatePrice(decimal percentageIncrease)
-        {
-            Price *= (1 + percentageIncrease);
-        }// end UpdatePrice()
+        public abstract void UpdatePrice(decimal percentageIncrease);
+        // end UpdatePrice()
 
 
 
