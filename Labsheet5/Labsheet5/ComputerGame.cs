@@ -38,16 +38,14 @@ namespace Labsheet5
                   2) Amends the Price of the object by the input decimal value */
         public override void UpdatePrice(decimal percentageIncrease)
         {
-            base.UpdatePrice(percentageIncrease);
-            Console.WriteLine("Updating from ComputerGame class");
-
+            Price *= (1 + percentageIncrease);
         }// end UpdatePrice()
 
 
-        /*CONSTRUCTORS-----------------------------------------------------------------------------------*/
-        /*Constructor: Default
-                       1) Calls the base default constructor in Game class */
-        public ComputerGame(): base()
+    /*CONSTRUCTORS-----------------------------------------------------------------------------------*/
+    /*Constructor: Default
+                   1) Calls the base default constructor in Game class */
+    public ComputerGame(): base()
         {
         }// end Default
 
