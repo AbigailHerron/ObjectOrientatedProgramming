@@ -8,7 +8,7 @@
  Properties: Title, Artist, Duration, Genre
  Enums: Genre
  Methods: ToString(override)
- Constructors: Default, Title, Title and Artist, Title, Artist and Duration, All
+ Constructors: Default, Artist, Artist and Title, Artist Title and Duration, All
  ##############################################################################*/
 using System;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace PracticeQuestionsWeek9
                      string */
         public override string ToString()
         {
-            return $"{this.Artist,-20}{this.Title,-20}{this.Duration,-10}{this.Genre,-10}";
+            return $"{this.Artist,-20}{this.Title,-30}{this.Duration,-10}{this.Genre,-10}";
         }// end ToString()
 
 
@@ -53,7 +53,10 @@ namespace PracticeQuestionsWeek9
                   2) */
         public int CompareTo(Song other)
         {
-            return (this.Artist.CompareTo(other.Artist) + this.Title.CompareTo(other.Title)) / 2;
+            if (this.Artist != other.Artist)
+                return this.Artist.CompareTo(other.Artist);
+            else
+                return this.Title.CompareTo(other.Title);
         }// end CompareTo()
 
         #region Constructors
@@ -66,39 +69,39 @@ namespace PracticeQuestionsWeek9
 
 
 
-        /*Constructor: Title
+        /*Constructor: Artist
                        1) Crates a song object with a populated This property */
-        public Song(string title)
-        {
-            this.Title = title;
-        }// end Title constructor
-
-
-
-        /*Constructor: Title and Artist
-                        1) Links to 'Title' constructor
-                        2) Populates the Artist property */
-        public Song(string title, string artist) : this(title)
+        public Song(string artist)
         {
             this.Artist = artist;
-        }// end Title and Artist constructor
+        }// end Artist constructor
 
 
 
-        /*Constructor: Title, Artist and Duration
-                       1) Links to 'Title and Artist' constructor
+        /*Constructor: Artist and Title
+                        1) Links to 'Artist' constructor
+                        2) Populates the Title property */
+        public Song(string artist, string title) : this(artist)
+        {
+            this.Title = title;
+        }// end Artist and Title constructor
+
+
+
+        /*Constructor: Artist, Title and Duration
+                       1) Links to 'Artist and Title' constructor
                        2) Populates the Duration property */
-        public Song(string title, string artist, string duration) : this(title, artist)
+        public Song(string artist, string title, string duration) : this(artist, title)
         {
         this.Duration = duration;
-        }// end Title, Artist and Duration constructor
+        }// end Artist, Title and Duration constructor
 
 
 
         /*Constructor: All
-                      1) Links to the 'Title, Artist and Duration' constructor
+                      1) Links to the 'Artist, Title and Duration' constructor
                       2) Populates the Genre property */
-        public Song(string title, string artist, string duration, string genre) : this(title, artist, duration)
+        public Song(string artist, string title, string duration, string genre) : this(artist, title, duration)
         {
             this.Genre = genre;
         }// end All constructor
