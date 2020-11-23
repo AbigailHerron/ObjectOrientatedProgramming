@@ -26,7 +26,7 @@ namespace PracticeQuestionsWeek9
     }// end Genre enum
 
 
-    class Song : IComparable
+    class Song : IComparable<Song>
     {
         /*PROPERTIES ----------------------------------------------------------*/
         public string Title { get; set; }
@@ -44,13 +44,17 @@ namespace PracticeQuestionsWeek9
         public override string ToString()
         {
             return $"{this.Artist,-20}{this.Title,-20}{this.Duration,-10}{this.Genre,-10}";
-        }
+        }// end ToString()
 
 
-        public int CompareTo(object obj)
+
+        /*Method: CompareTo()
+                  1) Using IComparable interface
+                  2) */
+        public int CompareTo(Song other)
         {
-            throw new NotImplementedException();
-        }
+            return (this.Artist.CompareTo(other.Artist) + this.Title.CompareTo(other.Title)) / 2;
+        }// end CompareTo()
 
         #region Constructors
         /*CONSTRUCTORS --------------------------------------------------------*/
