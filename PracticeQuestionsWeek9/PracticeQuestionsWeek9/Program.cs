@@ -4,8 +4,9 @@
  Year: 2
  Date: 23/11/20
 
- Description:
- Parameters:
+ Description: 1) Testing out the Song class with a few Song objects in a List
+              2) Trying out the IComparable CompareTo() method with the list
+ Parameters: None
  ##############################################################################*/
 using System;
 using System.Collections.Generic;
