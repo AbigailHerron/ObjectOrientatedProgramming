@@ -45,7 +45,7 @@ namespace Assessment2
                      employee */
         public override string ToString()
         {
-            return string.Format($"{this.LastName.ToUpper()}, {this.FirstName} - Part Time");
+            return string.Format($"{this.LastName.ToUpper()}, {this.FirstName} - {this.EmpType}");
         }// end ToString()
 
 
@@ -99,6 +99,7 @@ namespace Assessment2
         {
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.EmpType = "Part Time";
             this.HourlyRate = hourlyRate;
             this.HoursWorked = hoursWorked;
         }// end All constructor
