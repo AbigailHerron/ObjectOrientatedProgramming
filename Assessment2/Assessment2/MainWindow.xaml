@@ -20,9 +20,9 @@
         <Button x:Name="btnUpdateEmp" Content="Update" HorizontalAlignment="Left" Margin="664,214,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdateEmp_Click"/>
         <Button x:Name="btnDeleteEmp" Content="Delete" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Click="btnDeleteEmp_Click"/>
         <TextBox x:Name="tbxLastN" HorizontalAlignment="Left" Height="20" Margin="446,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" GotFocus="tbxLastN_GotFocus"/>
-        <RadioButton x:Name="rdbPartTime" Content="" HorizontalAlignment="Left" Margin="556,227,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbPartTime" Content="" HorizontalAlignment="Left" Margin="556,227,0,0" VerticalAlignment="Top" GroupName="EmployeeType"/>
         <TextBlock x:Name="tblkEmpTypePT" HorizontalAlignment="Left" Margin="556,205,0,0" TextWrapping="Wrap" Text="PT" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbnFullTime" Content="" HorizontalAlignment="Left" Margin="472,227,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbFullTime" Content="" HorizontalAlignment="Left" Margin="471,227,0,0" VerticalAlignment="Top" GroupName="EmployeeType"/>
         <TextBlock x:Name="tblkEmpTypeFT" HorizontalAlignment="Left" Height="16" Margin="472,205,0,0" TextWrapping="Wrap" Text="FT" VerticalAlignment="Top" Width="17" RenderTransformOrigin="1.471,0.625"/>
         <TextBlock x:Name="tblkLastName" HorizontalAlignment="Left" Margin="339,161,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxSalary" HorizontalAlignment="Left" Height="22" Margin="446,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxSalary_GotFocus"/>
