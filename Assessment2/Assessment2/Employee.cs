@@ -21,8 +21,8 @@ namespace Assessment2
     abstract class Employee
     {
         /*PROPERTIES -----------------------------------------------------------------------------------*/
-        protected abstract string FirstName { get; set; }
-        public abstract string LastName { get; set; }
+        protected string FirstName { get; set; }
+        protected string LastName { get; set; }
 
 
 
