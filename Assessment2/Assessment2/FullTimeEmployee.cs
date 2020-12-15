@@ -7,7 +7,7 @@
  Description: 1) A blueprint for a FullTimeEmployee object
               2) Is derived from the abstract Employee class
  Added Properties: Salary
- Altered Methods: CalculateMonthlyPay
+ Altered Methods: CalculateMonthlyPay, ToString
  Constructors: Default, FirstName, FirstName and LastName, All
  #######################################################################################################*/
 using System;
@@ -36,8 +36,18 @@ namespace Assessment2
             return monthlyPay;
         }// end CalculateMonthlyPay()
 
+        /*Method: ToString() (override) 
+                  1) Overrides original ToString() method
+                  2) Returns a string value format of LastName (in uppercase), FirstName and type of
+                     employee */
+        public override string ToString()
+        {
+            return string.Format($"{this.FirstName.ToUpper()}, {this.LastName} - Full Time");
+        }// end ToString()
+
 
         /*CONSTRUCTORS ---------------------------------------------------------------------------------*/
+        #region Constructor Chain
         /*Constructor: Default
                        1) Declares an object with a default FirstName, LastName and Salary
                        2) Chains these values to the All constructor */
@@ -62,7 +72,7 @@ namespace Assessment2
         {
         }// end FirstName and LastName constructor
 
-
+        #endregion
         /*Constructor: All
                        1) Takes in two string values for FirstName and LastName properties 
                        2) Takes in a decimal value for the Salary property 
