@@ -57,8 +57,8 @@ namespace Assessment2
         {
             lbxEmployees.ItemsSource = employees;
 
-            FullTimeEmployee f1 = new FullTimeEmployee();
-            PartTimeEmployee p1 = new PartTimeEmployee();
+            FullTimeEmployee f1 = new FullTimeEmployee("Alex", "Jones");
+            PartTimeEmployee p1 = new PartTimeEmployee("Peter", "Malark");
 
             employees.Add(f1);
             employees.Add(p1);
