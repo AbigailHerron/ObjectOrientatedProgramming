@@ -41,6 +41,7 @@ namespace Assessment2
     {
         /*PROPERTIES -----------------------------------------------------------------------------------*/
         ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
         List<TextBox> fields = new List<TextBox>();
 
 
@@ -66,10 +67,11 @@ namespace Assessment2
             fields.Add(tbxHourlyRate);
             fields.Add(tbxHoursWorked);
 
-
+            // Creating dummy Employee objects
             FullTimeEmployee f1 = new FullTimeEmployee("Alex", "Jones", 135000);
             PartTimeEmployee p1 = new PartTimeEmployee("Peter", "Malark");
 
+            // Adding dummy Employees to employees ObservableCollection
             employees.Add(f1);
             employees.Add(p1);
             
@@ -79,10 +81,47 @@ namespace Assessment2
 
         /*Event Group: ListBox Selection Process */
         #region Showing Employee Details
+
+        /*Method: cbx_Checked()
+                  1) Executes when either cbxFullTime or cbxPart time are checked or unchecked
+                  2) Determines which Check Box elements are checked
+                  3) Itterates through the employees Observable Collection
+                  4) Adds the appropriate objects in the Collection to the
+                     filtered collection (based on the EmpType property) */
+        private void cbx_Checked(object sender, RoutedEventArgs e)
+        {
+            string empGroup = "?";
+            filteredEmployees.Clear();
+            lbxEmployees.ItemsSource = null;
+
+            // All list
+            if ((cbxFullTime.IsChecked == true) && (cbxPartTime.IsChecked == true))
+                lbxEmployees.ItemsSource = employees;
+            else
+            {
+                if (cbxFullTime.IsChecked == true)
+                {
+                    empGroup = "Full Time";
+                }
+                else if (cbxPartTime.IsChecked == true)
+                {
+                    empGroup = "Part Time";
+                }
+                
+                foreach(Employee emp in employees)
+                {
+                    if (emp.EmpType == empGroup)
+                        filteredEmployees.Add(emp);
+                }
+                lbxEmployees.ItemsSource = filteredEmployees;
+            }// end if/else block            
+        }// end cbx_Checked()
+
+
         /*Method: lbxEmployees_SelectionChanged()
                   1) Executes once as the Window element is being loaded and each time a new
                      item is selected
-                  2) Calls the Clear() method
+                  2) Calls the ClearFields() method
                   3) Creates two temporary objects, one FullTimeEmployee and one PartTimeEmployee
                   4) Checks the type of the selected item from the ListBox
                   5) Passes the appropriate temp object to the ShowDetails() method */
@@ -92,7 +131,7 @@ namespace Assessment2
             FullTimeEmployee tempF = new FullTimeEmployee();
             PartTimeEmployee tempP = new PartTimeEmployee();
 
-            Clear();
+            ClearFields();
             if (SelectedEmp != null) // ensuring selected item is not null
             {
                 if(SelectedEmp.GetType() == typeof(FullTimeEmployee))
@@ -110,11 +149,11 @@ namespace Assessment2
 
 
 
-        /*Method: Clear()
+        /*Method: ClearFields()
                   1) Itterates through the List fields
                   2) Clears the text for each TextBox field, the Radio Button choice and
                      the TextBlock containing the Montly Pay Calculation */
-        private void Clear()
+        private void ClearFields()
         {
             // Clearing TextBoxes
             foreach (TextBox field in fields)
@@ -131,7 +170,7 @@ namespace Assessment2
             // clearing Monthly Pay Calculation
             tblkMonthlyPayCalculation.Text = null;
 
-        }// end Clear()
+        }// end ClearFields()
 
 
 
@@ -204,10 +243,10 @@ namespace Assessment2
                         2) Executes when each Button is clicked */
         #region .._Click()
         /*Method: btnClear_Click()
-                  1) Calls the Clear() method */
+                  1) Calls the ClearFields() method */
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            Clear();
+            ClearFields();
         }// end btnClear_Click()
 
 
@@ -241,6 +280,7 @@ namespace Assessment2
 
         }// end btnDeleteEmp_Click()
         #endregion
+
 
 
 
