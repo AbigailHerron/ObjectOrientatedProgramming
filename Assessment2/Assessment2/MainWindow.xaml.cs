@@ -127,6 +127,7 @@ namespace Assessment2
                   5) Passes the appropriate temp object to the ShowDetails() method */
         private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // setup
             Employee SelectedEmp = lbxEmployees.SelectedItem as Employee;
             FullTimeEmployee tempF = new FullTimeEmployee();
             PartTimeEmployee tempP = new PartTimeEmployee();
@@ -151,10 +152,11 @@ namespace Assessment2
 
         /*Method: ClearFields()
                   1) Itterates through the List fields
-                  2) Clears the text for each TextBox field, the Radio Button choice and
-                     the TextBlock containing the Montly Pay Calculation */
+                  2) Clears the text for each TextBox field, the Radio Button choice
+                     and the TextBlock containing the Montly Pay Calculation */
         private void ClearFields()
         {
+
             // Clearing TextBoxes
             foreach (TextBox field in fields)
             {
@@ -166,6 +168,11 @@ namespace Assessment2
                 rbFullTime.IsChecked = false;
             if (rbPartTime.IsChecked == true)
                 rbPartTime.IsChecked = false;
+
+            // clearing any warning colours
+            tblkEmpTypeFT.Background = Brushes.White;
+            tblkEmpTypePT.Background = Brushes.White;
+            lbxEmployees.Background = Brushes.White;
 
             // clearing Monthly Pay Calculation
             tblkMonthlyPayCalculation.Text = null;
@@ -251,22 +258,57 @@ namespace Assessment2
 
 
         /*Method: btnAddEmp_Click()
-                  1) 
-                  2) 
-                  3) */
+                  1) Executes when btnAddEmp is clicked
+                  2) Determines whether rbFullTime or rbPartTime is checked
+                  3) Launches a MessageBox asking the user to select a Radio Button
+                     if one isn't already chosen, and highlights tblkEmpTypeFT and
+                     tblkEmpTypePT in yellow
+                  4) Executes either the CreateEmpFT() or CreatEmpPT() method */
         private void btnAddEmp_Click(object sender, RoutedEventArgs e)
         {
-
+            if((rbFullTime.IsChecked == false) && (rbPartTime.IsChecked == false))
+            {
+                MessageBox.Show("Please select either FT or PT to add");
+                tblkEmpTypeFT.Background = Brushes.Yellow;
+                tblkEmpTypePT.Background = Brushes.Yellow;
+            }
+            else
+            {
+                if (rbFullTime.IsChecked == true)
+                    CreateEmpFT();
+                if (rbPartTime.IsChecked == true)
+                    CreateEmpPT();
+            }
         }// end btnAddEmp_Click()
 
 
         /*Method: btnUpdateEmp_Click()
-                  1) 
-                  2) 
-                  3) */
+                  1) Executes when btnUpdateEmp is clicked
+                  2) Determines whether an item from the ListBox has been selected
+                     (gives the ListBox a warning background colour of Yellow if not)
+                  3) Creates an object based on which Radio Button is selected with the properties
+                     contained in the TextBox fields at the time
+                  4) Replaces the employees object at the selected index with new object*/
         private void btnUpdateEmp_Click(object sender, RoutedEventArgs e)
         {
-
+            if(lbxEmployees.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an employee to update");
+                lbxEmployees.Background = Brushes.Yellow;
+            }
+            else
+            {
+                if(rbFullTime.IsChecked == true)
+                {
+                    FullTimeEmployee emp = new FullTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxSalary.Text));
+                    employees[lbxEmployees.SelectedIndex] = emp;
+                }
+                if(rbPartTime.IsChecked == true)
+                {
+                    PartTimeEmployee emp = new PartTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxHourlyRate.Text), double.Parse(tbxHoursWorked.Text));
+                    employees[lbxEmployees.SelectedIndex] = emp;
+                }
+            }// end if/else block
         }// end btnUpdateEmp_Click()
 
 
@@ -279,11 +321,65 @@ namespace Assessment2
         {
 
         }// end btnDeleteEmp_Click()
+
+
+
+        /*Method: rb_Checked()
+                  1) Executes when either rbFullTime or rbPartTime is checked
+                  2) Resets the background colours of tblkEmpTypeFT and tblkEmpTypePT
+                     time to white */
+        private void rb_Checked(object sender, RoutedEventArgs e)
+        {
+            tblkEmpTypeFT.Background = Brushes.White;
+            tblkEmpTypePT.Background = Brushes.White;
+        }// end rb_Checked()
         #endregion
 
 
 
+        /*Method: CreateEmpFT()
+                  1) Initialises a blank FullTimeEmployee object
+                  2) Updates the blank object's properties based on the 
+                     appropriate TextBox fields 
+                  3) Adds new object to the employees Observable Collection 
+                  4) Sorts the Observable Collection */
+        private void CreateEmpFT()
+        {
+            FullTimeEmployee emp = new FullTimeEmployee();
 
-        
+            if (tbxFirstN.Text != "")
+                emp.FirstName = tbxFirstN.Text;
+            if (tbxLastN.Text != "")
+                emp.LastName = tbxLastN.Text;
+            if (tbxSalary.Text != "")
+                emp.Salary = decimal.Parse(tbxSalary.Text);
+
+            employees.Add(emp);
+        }// end CreateEmpFT()
+
+        /*Method: CreateEmpFT()
+                  1) Initialises a blank PartTimeEmployee object
+                  2) Updates the blank object's properties based on the 
+                     appropriate TextBox fields 
+                  3) Adds new object to the employees Observable Collection 
+                  4) Sorts the Observable Collection */
+        private void CreateEmpPT()
+        {
+            PartTimeEmployee emp = new PartTimeEmployee();
+
+            if (tbxFirstN.Text != "")
+                emp.FirstName = tbxFirstN.Text;
+            if (tbxLastN.Text != "")
+                emp.LastName = tbxLastN.Text;
+            if (tbxHourlyRate.Text != "")
+                emp.HourlyRate = decimal.Parse(tbxHourlyRate.Text);
+            if (tbxHoursWorked.Text != "")
+                emp.HoursWorked = double.Parse(tbxHoursWorked.Text);
+
+            employees.Add(emp);
+        }// end CreateEmpFT()
+
+
+
     }// end MainWindow partial class
 }// end Namespace
