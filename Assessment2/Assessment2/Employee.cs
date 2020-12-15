@@ -31,15 +31,5 @@ namespace Assessment2
                   1) Is intended to be modified by potential derived classes */
         public abstract decimal CalculateMonthlyPay(); // end CalculateMonthlyPay()
 
-
-        /*Method: ToString()
-                  1) Overrides original ToString() method
-                  2) Displays LastName (in uppercase), FirstName and object type in
-                     that order */
-        public override string ToString()
-        {
-            return string.Format($"{this.LastName.ToUpper()}, {this.FirstName} - {this.GetType()}");
-        }// end ToString()
-
     }// end Employee Class
 }// end Namepsace
