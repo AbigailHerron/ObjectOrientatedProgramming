@@ -40,7 +40,7 @@ namespace Assessment2
     public partial class MainWindow : Window
     {
         /*PROPERTIES -----------------------------------------------------------------------------------*/
-        ObservableCollection<string> employees = new ObservableCollection<string>();
+        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
 
 
 
@@ -48,19 +48,24 @@ namespace Assessment2
         public MainWindow()
         {
             InitializeComponent();
-            lbxEmployees.ItemsSource = employees;
         }
 
 
 
         /*METHODS --------------------------------------------------------------------------------------*/
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            lbxEmployees.ItemsSource = employees;
+
+            FullTimeEmployee f1 = new FullTimeEmployee();
+            PartTimeEmployee p1 = new PartTimeEmployee();
+
+            employees.Add(f1);
+            employees.Add(p1);
         }
 
 
-        /*Method Group: .._GotFocus()
+        /*Event Group: .._GotFocus()
                         1) Exists for all TextBox Fields (tbxFirstN, tbxLastN, tbxSalary,
                            tbxHourlyRate and tbxHoursWorked) 
                         2) Clears the existing text */
@@ -91,5 +96,6 @@ namespace Assessment2
         }// end tbxHoursWorked_GotFocus()
         #endregion
 
+        
     }// end MainWindow partial class
 }// end Namespace
