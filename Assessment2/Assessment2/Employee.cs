@@ -24,7 +24,7 @@ namespace Assessment2
         /*PROPERTIES -----------------------------------------------------------------------------------*/
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
+        public virtual string EmpType { get; set; }
 
 
         /*METHODS --------------------------------------------------------------------------------------*/
