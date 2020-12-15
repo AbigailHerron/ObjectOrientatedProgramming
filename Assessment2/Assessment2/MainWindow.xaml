@@ -11,14 +11,14 @@
             <RowDefinition Height="262*"/>
             <RowDefinition Height="287*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lbxEmployees" HorizontalAlignment="Left" Height="245" Margin="91,145,0,0" VerticalAlignment="Top" Width="182" IsSynchronizedWithCurrentItem="True" Grid.RowSpan="2"/>
+        <ListBox x:Name="lbxEmployees" HorizontalAlignment="Left" Height="245" Margin="91,145,0,0" VerticalAlignment="Top" Width="182" IsSynchronizedWithCurrentItem="True" Grid.RowSpan="2" SelectionChanged="lbxEmployees_SelectionChanged"/>
         <TextBlock x:Name="tblkListTitle" HorizontalAlignment="Left" Margin="91,114,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top"/>
-        <Button x:Name="btnAddEmp" Content="Add" HorizontalAlignment="Left" Margin="664,157,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAddEmp" Content="Add" HorizontalAlignment="Left" Margin="664,157,0,0" VerticalAlignment="Top" Width="75" Click="btnAddEmp_Click"/>
         <TextBlock x:Name="tblkFirstNTitle" HorizontalAlignment="Left" Margin="339,101,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxFirstN" HorizontalAlignment="Left" Height="19" Margin="446,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" GotFocus="tbxFirstN_GotFocus"/>
-        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="664,101,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnUpdateEmp" Content="Update" HorizontalAlignment="Left" Margin="664,214,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnDeleteEmp" Content="Delete" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="664,101,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
+        <Button x:Name="btnUpdateEmp" Content="Update" HorizontalAlignment="Left" Margin="664,214,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdateEmp_Click"/>
+        <Button x:Name="btnDeleteEmp" Content="Delete" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Click="btnDeleteEmp_Click"/>
         <TextBox x:Name="tbxLastN" HorizontalAlignment="Left" Height="20" Margin="446,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" GotFocus="tbxLastN_GotFocus"/>
         <RadioButton x:Name="rdbPartTime" Content="" HorizontalAlignment="Left" Margin="556,227,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="tblkEmpTypePT" HorizontalAlignment="Left" Margin="556,205,0,0" TextWrapping="Wrap" Text="PT" VerticalAlignment="Top"/>
