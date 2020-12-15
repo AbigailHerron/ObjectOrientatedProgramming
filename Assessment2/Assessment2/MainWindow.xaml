@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Assessment2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Loaded="Grid_Loaded">
+        <ListBox x:Name="lbxEmployees" HorizontalAlignment="Left" Height="272" Margin="91,77,0,0" VerticalAlignment="Top" Width="182"/>
+
     </Grid>
 </Window>
