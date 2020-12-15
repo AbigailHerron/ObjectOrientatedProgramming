@@ -60,7 +60,7 @@ namespace Assessment2
         /*Constructor: FirstName
                        1) Takes a string input as a FirstName property
                        2) Chains this value, with additional default values, to the All constructor */
-        public FullTimeEmployee(string firstName) : this (firstName, "", 0)
+        public FullTimeEmployee(string firstName) : this (firstName, "Doe", 0)
         {
         }// end FirstName constructor
 
