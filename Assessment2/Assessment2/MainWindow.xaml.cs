@@ -1,8 +1,9 @@
-﻿/*########################################################################################################
+﻿/*##################################################################################################################################
  Name: Abigail Herron
  ID: S00200536
  Year: 2
  Date: 15/12/20
+ GitHub Link: https://github.com/AbigailHerron/ObjectOrientatedProgramming/blob/main/Assessment2/Assessment2/MainWindow.xaml.cs
 
  Description: A partial class of type Window and  the interaction definitions of all other elements 
               contained within
@@ -14,7 +15,7 @@
              lbxEmployees, tblkListTitle, tblkFirstN, tblkLastN, tblkTypeEmpFT, tblkTypeEmpPT,
              tblkSalary, tblkHourlyRate, tblkHoursWorked, tblkMontlyPayTitle, tblkMontlyPayCalculation
  Methods: Grid_Loaded(), 
- #######################################################################################################*/
+ ##################################################################################################################################*/
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
