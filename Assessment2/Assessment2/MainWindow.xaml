@@ -33,8 +33,8 @@
         <TextBlock x:Name="tblkHoursWorked" HorizontalAlignment="Left" Height="17" Margin="339,123,0,0" TextWrapping="Wrap" Text="Hours Worked" VerticalAlignment="Top" Width="77" Grid.Row="1"/>
         <TextBlock x:Name="tblkMonthlyPayTitle" HorizontalAlignment="Left" Height="20" Margin="278,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Grid.Row="1"><Run Text="Mont"/><Run Text="h"/><Run Text="ly Pay"/></TextBlock>
         <TextBlock x:Name="tblkMonthlyPayCalculation" HorizontalAlignment="Left" Height="20" Margin="361,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Row="1"/>
-        <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="89,69,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="203,69,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="89,69,0,0" VerticalAlignment="Top" Checked="cbx_Checked" Unchecked="cbx_Checked"/>
+        <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="203,69,0,0" VerticalAlignment="Top" Checked="cbx_Checked" Unchecked="cbx_Checked"/>
 
     </Grid>
 </Window>
