@@ -9,7 +9,7 @@
               contained within
  Elements: Interactive
              cbxFullTime, cbxPartTime, tbxFirstN, tbxLastN, tbxSalary, tbxHourlyRate, 
-             tbxHoursWorked, rbnFullTime, rbnPartTime, btnClear, btnAddEmp, btnUpdateEmp, btnDeleteEmp
+             tbxHoursWorked, rbFullTime, rbPartTime, btnClear, btnAddEmp, btnUpdateEmp, btnDeleteEmp
           
            Static
              lbxEmployees, tblkListTitle, tblkFirstN, tblkLastN, tblkTypeEmpFT, tblkTypeEmpPT,
@@ -112,37 +112,54 @@ namespace Assessment2
 
         /*Method: Clear()
                   1) Itterates through the List fields
-                  2) Clears the text for each TextBox field */
+                  2) Clears the text for each TextBox field, the Radio Button choice and
+                     the TextBlock containing the Montly Pay Calculation */
         private void Clear()
         {
+            // Clearing TextBoxes
             foreach (TextBox field in fields)
             {
                 field.Clear();
             }
+
+            // clearing Radio Buttons
+            if (rbFullTime.IsChecked == true)
+                rbFullTime.IsChecked = false;
+            if (rbPartTime.IsChecked == true)
+                rbPartTime.IsChecked = false;
+
+            // clearing Monthly Pay Calculation
+            tblkMonthlyPayCalculation.Text = null;
+
         }// end Clear()
 
 
 
         /*Method: ShowDetails() (overloaded)
                   1) Takes in a FullTimeEmployee object
-                  2) Updates the approproate Text Box fields */
+                  2) Updates the approproate TextBox, Radio and Calculation fields */
         private void ShowDetails(FullTimeEmployee temp)
         {
-                tbxFirstN.Text = temp.FirstName;
-                tbxLastN.Text = temp.LastName;
-                tbxSalary.Text = string.Format($"{temp.Salary: ###,##0}");
+            tbxFirstN.Text = temp.FirstName;
+            tbxLastN.Text = temp.LastName;
+            rbFullTime.IsChecked = true;
+            tbxSalary.Text = string.Format($"{temp.Salary: ###,##0}");
+            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
+            
         }// end ShowDetails() (FullTimeEmployee)
 
 
         /*Method: ShowDetails() (overloaded)
                   1) Takes in a PartTimeEmployee object
-                  2) Updates the approproate Text Box fields */
+                  2) Updates the approproate TextBox, Radio and Calculation fields */
         private void ShowDetails(PartTimeEmployee temp)
         {
             tbxFirstN.Text = temp.FirstName;
             tbxLastN.Text = temp.LastName;
+            rbPartTime.IsChecked = true;
             tbxHourlyRate.Text = string.Format($"{temp.HourlyRate: ##0.00}");
             tbxHoursWorked.Text = string.Format($"{temp.HoursWorked: ##0.00}");
+            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
         }// end ShowDetails() (PartTimeEmployee)
         #endregion
 
@@ -224,6 +241,8 @@ namespace Assessment2
 
         }// end btnDeleteEmp_Click()
         #endregion
+
+
 
         
     }// end MainWindow partial class
