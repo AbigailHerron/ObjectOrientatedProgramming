@@ -44,7 +44,6 @@ namespace Assessment2
         List<TextBox> fields = new List<TextBox>();
 
 
-
         /*ELEMENTS -------------------------------------------------------------------------------------*/
         public MainWindow()
         {
