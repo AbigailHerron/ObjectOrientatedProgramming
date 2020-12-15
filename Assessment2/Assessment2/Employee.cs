@@ -5,10 +5,10 @@
  Date: 15/12/20
 
  Description: 1) A blueprint for an Employee object
-              2) Is intended to be a parent class
- Properties: FirstName, LastName, Pay
- Methods: CalculatePay (virtual), ToString (override)
- Constructors: Default, All
+              2) Is intended to be an abstract base class
+ Properties: FirstName, LastName
+ Methods: CalculateMonthlyPay, ToString (override)
+ Constructors: None
  #######################################################################################################*/
 using System;
 using System.Collections.Generic;
@@ -18,24 +18,18 @@ using System.Threading.Tasks;
 
 namespace Assessment2
 {
-    class Employee
+    abstract class Employee
     {
         /*PROPERTIES -----------------------------------------------------------------------------------*/
-        protected string FirstName { get; set; }
-        protected string LastName { get; set; }
-        protected decimal Pay { get; set; }
+        protected abstract string FirstName { get; set; }
+        public abstract string LastName { get; set; }
 
 
 
         /*METHODS --------------------------------------------------------------------------------------*/
-        /*Method: CalculatePay()
-                  1) Sets the Pay property to the decimal value passed into it
-                  2) Is intended to be modified by potential subclasses */
-        protected virtual void CalculatePay(decimal wage)
-        {
-            this.Pay = wage;
-        }// end CalculatePay()
-
+        /*Method: CalculateMonthlyPay()
+                  1) Is intended to be modified by potential derived classes */
+        public abstract decimal CalculateMonthlyPay(); // end CalculateMonthlyPay()
 
 
         /*Method: ToString()
@@ -46,27 +40,6 @@ namespace Assessment2
         {
             return string.Format($"{this.LastName.ToUpper()}, {this.FirstName} - {this.GetType()}");
         }// end ToString()
-
-
-
-        /*CONSTRUCTORS ---------------------------------------------------------------------------------*/
-        /*Constructor: Default
-                       1) Initialises an Employee object with empty properites */
-        public Employee()
-        {
-        }// end Default constructor
-
-
-        /*Constructor: All
-                       1) Initialises an Employee object
-                       2) Gives the object a value for the FirstName, LastName
-                          and Pay properties */
-        public Employee(string firstName, string lastName, decimal pay)
-        {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Pay = pay;
-        }// end All constructor
 
     }// end Employee Class
 }// end Namepsace
