@@ -14,7 +14,7 @@
            Static
              lbxEmployees, tblkListTitle, tblkFirstN, tblkLastN, tblkTypeEmpFT, tblkTypeEmpPT,
              tblkSalary, tblkHourlyRate, tblkHoursWorked, tblkMontlyPayTitle, tblkMontlyPayCalculation
- Methods: Grid_Loaded(), 
+ Methods:  
  ##################################################################################################################################*/
 using System;
 using System.Collections.Generic;
@@ -298,12 +298,12 @@ namespace Assessment2
             }
             else
             {
-                if(rbFullTime.IsChecked == true)
+                if(rbFullTime.IsChecked == true) // FullTimeEmployee object
                 {
                     FullTimeEmployee emp = new FullTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxSalary.Text));
                     employees[lbxEmployees.SelectedIndex] = emp;
                 }
-                if(rbPartTime.IsChecked == true)
+                if(rbPartTime.IsChecked == true) // PartTimeEmployee object
                 {
                     PartTimeEmployee emp = new PartTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxHourlyRate.Text), double.Parse(tbxHoursWorked.Text));
                     employees[lbxEmployees.SelectedIndex] = emp;
@@ -314,12 +314,21 @@ namespace Assessment2
 
 
         /*Method: btnDeleteEmp_Click()
-                  1) 
-                  2) 
-                  3) */
+                  1) Executes when btnUpdateEmp is clicked
+                  2) Determines whether an item from the ListBox has been selected
+                     (gives the ListBox a warning background colour of Yellow if not) 
+                  3) Removes the object from employees at the selected index */
         private void btnDeleteEmp_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lbxEmployees.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an employee to delete");
+                lbxEmployees.Background = Brushes.Yellow;
+            }
+            else
+            {
+                employees.Remove(employees[lbxEmployees.SelectedIndex]);
+            }
         }// end btnDeleteEmp_Click()
 
 
@@ -378,8 +387,5 @@ namespace Assessment2
 
             employees.Add(emp);
         }// end CreateEmpFT()
-
-
-
     }// end MainWindow partial class
 }// end Namespace
