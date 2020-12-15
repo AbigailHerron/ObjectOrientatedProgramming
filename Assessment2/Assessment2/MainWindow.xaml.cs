@@ -62,7 +62,8 @@ namespace Assessment2
         /*Method Group: .._GotFocus()
                         1) Exists for all TextBox Fields (tbxFirstN, tbxLastN, tbxSalary,
                            tbxHourlyRate and tbxHoursWorked) 
-                        2) Clears the existing text if any is present */
+                        2) Clears the existing text */
+        #region .._GotFocus()
         private void tbxFirstN_GotFocus(object sender, RoutedEventArgs e)
         {
             tbxFirstN.Clear();
@@ -78,7 +79,16 @@ namespace Assessment2
             tbxSalary.Clear();
         }// end tbxSalary_GotFocus()
 
+        private void tbxHourlyRate_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbxHourlyRate.Clear();
+        }// end tbxHourlyRate_GotFocus()
 
+        private void tbxHoursWorked_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbxHoursWorked.Clear();
+        }// end tbxHoursWorked_GotFocus()
+        #endregion
 
     }// end MainWindow partial class
 }// end Namespace
