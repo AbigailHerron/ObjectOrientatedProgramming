@@ -7,7 +7,7 @@
  Description: 1) A blueprint for an Employee object
               2) Is intended to be an abstract base class
  Properties: FirstName, LastName
- Methods: CalculateMonthlyPay, ToString (override)
+ Methods: CalculateMonthlyPay
  Constructors: None
  #######################################################################################################*/
 using System;
