@@ -2,7 +2,7 @@
  Name: Abigail Herron
  ID: S00200536
  Year: 2
- Date: 15/12/20
+ Date: 15/12/20 - 16/12/20
  GitHub Link: https://github.com/AbigailHerron/ObjectOrientatedProgramming/blob/main/Assessment2/Assessment2/MainWindow.xaml.cs
 
  Description: A partial class of type Window and  the interaction definitions of all other elements 
@@ -16,21 +16,12 @@
              tblkSalary, tblkHourlyRate, tblkHoursWorked, tblkMontlyPayTitle, tblkMontlyPayCalculation
  Methods:  
  ##################################################################################################################################*/
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Assessment2
 {
@@ -44,8 +35,6 @@ namespace Assessment2
         ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
         List<TextBox> fields = new List<TextBox>();
 
-
-        /*ELEMENTS -------------------------------------------------------------------------------------*/
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +42,8 @@ namespace Assessment2
 
 
 
-        /*METHODS --------------------------------------------------------------------------------------*/
+        /*EVENT BASED METHODS: -------------------------------------------------------------------------*/
+        #region Event Methods
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Populating Class Properties
@@ -74,13 +64,11 @@ namespace Assessment2
             // Adding dummy Employees to employees ObservableCollection
             employees.Add(f1);
             employees.Add(p1);
-            
+
+            // Sorting employees collection in alphabetical order by LastName
+            employees = SortCollection(employees);
         }// end Window_Loaded()
 
-
-
-        /*Event Group: ListBox Selection Process */
-        #region Showing Employee Details
 
         /*Method: cbx_Checked()
                   1) Executes when either cbxFullTime or cbxPart time are checked or unchecked
@@ -147,68 +135,6 @@ namespace Assessment2
                 }
             }// end if block
         }// end lbxEmployees_SelectionChanged()
-
-
-
-        /*Method: ClearFields()
-                  1) Itterates through the List fields
-                  2) Clears the text for each TextBox field, the Radio Button choice
-                     and the TextBlock containing the Montly Pay Calculation */
-        private void ClearFields()
-        {
-
-            // Clearing TextBoxes
-            foreach (TextBox field in fields)
-            {
-                field.Clear();
-            }
-
-            // clearing Radio Buttons
-            if (rbFullTime.IsChecked == true)
-                rbFullTime.IsChecked = false;
-            if (rbPartTime.IsChecked == true)
-                rbPartTime.IsChecked = false;
-
-            // clearing any warning colours
-            tblkEmpTypeFT.Background = Brushes.White;
-            tblkEmpTypePT.Background = Brushes.White;
-            lbxEmployees.Background = Brushes.White;
-
-            // clearing Monthly Pay Calculation
-            tblkMonthlyPayCalculation.Text = null;
-
-        }// end ClearFields()
-
-
-
-        /*Method: ShowDetails() (overloaded)
-                  1) Takes in a FullTimeEmployee object
-                  2) Updates the approproate TextBox, Radio and Calculation fields */
-        private void ShowDetails(FullTimeEmployee temp)
-        {
-            tbxFirstN.Text = temp.FirstName;
-            tbxLastN.Text = temp.LastName;
-            rbFullTime.IsChecked = true;
-            tbxSalary.Text = string.Format($"{temp.Salary: ###,##0}");
-            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
-            
-        }// end ShowDetails() (FullTimeEmployee)
-
-
-        /*Method: ShowDetails() (overloaded)
-                  1) Takes in a PartTimeEmployee object
-                  2) Updates the approproate TextBox, Radio and Calculation fields */
-        private void ShowDetails(PartTimeEmployee temp)
-        {
-            tbxFirstN.Text = temp.FirstName;
-            tbxLastN.Text = temp.LastName;
-            rbPartTime.IsChecked = true;
-            tbxHourlyRate.Text = string.Format($"{temp.HourlyRate: ##0.00}");
-            tbxHoursWorked.Text = string.Format($"{temp.HoursWorked: ##0.00}");
-            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
-        }// end ShowDetails() (PartTimeEmployee)
-        #endregion
-
 
 
         /*Event Group: .._GotFocus()
@@ -279,6 +205,10 @@ namespace Assessment2
                 if (rbPartTime.IsChecked == true)
                     CreateEmpPT();
             }
+
+            // refreshing ListBox
+            lbxEmployees.ItemsSource = null;
+            lbxEmployees.ItemsSource = SortCollection(employees);
         }// end btnAddEmp_Click()
 
 
@@ -300,14 +230,21 @@ namespace Assessment2
             {
                 if(rbFullTime.IsChecked == true) // FullTimeEmployee object
                 {
-                    FullTimeEmployee emp = new FullTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxSalary.Text));
+                    FullTimeEmployee emp = new FullTimeEmployee(tbxFirstN.Text, tbxLastN.Text,
+                                               decimal.Parse(tbxSalary.Text));
                     employees[lbxEmployees.SelectedIndex] = emp;
                 }
                 if(rbPartTime.IsChecked == true) // PartTimeEmployee object
                 {
-                    PartTimeEmployee emp = new PartTimeEmployee(tbxFirstN.Text, tbxLastN.Text, decimal.Parse(tbxHourlyRate.Text), double.Parse(tbxHoursWorked.Text));
+                    PartTimeEmployee emp = new PartTimeEmployee(tbxFirstN.Text, tbxLastN.Text,
+                                               decimal.Parse(tbxHourlyRate.Text),
+                                           double.Parse(tbxHoursWorked.Text));
                     employees[lbxEmployees.SelectedIndex] = emp;
                 }
+
+                // refreshing ListBox
+                lbxEmployees.ItemsSource = null;
+                lbxEmployees.ItemsSource = SortCollection(employees);
             }// end if/else block
         }// end btnUpdateEmp_Click()
 
@@ -329,8 +266,12 @@ namespace Assessment2
             {
                 employees.Remove(employees[lbxEmployees.SelectedIndex]);
             }
-        }// end btnDeleteEmp_Click()
 
+            // refreshing ListBox
+            lbxEmployees.ItemsSource = null;
+            lbxEmployees.ItemsSource = SortCollection(employees);
+        }// end btnDeleteEmp_Click()
+        #endregion
 
 
         /*Method: rb_Checked()
@@ -342,8 +283,85 @@ namespace Assessment2
             tblkEmpTypeFT.Background = Brushes.White;
             tblkEmpTypePT.Background = Brushes.White;
         }// end rb_Checked()
+
+
+        /*Method: UpdatePay()
+                  1) Executes when either tbxHourlyRate or tbxHoursWorked
+                     lose focus
+                  2) Updates the tlbkMontlyPayCalculation field in real time */
+        private void UpdatePay(object sender, RoutedEventArgs e)
+        {
+            decimal hrlyR = 0;
+            double hrsW = 0;
+
+            if(tbxHourlyRate.Text != "")
+                hrlyR = decimal.Parse(tbxHourlyRate.Text);
+            if(tbxHoursWorked.Text != "")
+            hrsW = double.Parse(tbxHoursWorked.Text);
+
+            tblkMonthlyPayCalculation.Text = string.Format($"{(hrlyR * (decimal)hrsW):C2}");
+        }// end UpdatePay
         #endregion
 
+
+        /*LOGIC BASED METHODS: -------------------------------------------------------------------------*/
+        #region Logic Methods
+        /*Method: ClearFields()
+                 1) Itterates through the List fields
+                 2) Clears the text for each TextBox field, the Radio Button choice
+                    and the TextBlock containing the Montly Pay Calculation */
+        private void ClearFields()
+        {
+
+            // Clearing TextBoxes
+            foreach (TextBox field in fields)
+            {
+                field.Clear();
+            }
+
+            // clearing Radio Buttons
+            if (rbFullTime.IsChecked == true)
+                rbFullTime.IsChecked = false;
+            if (rbPartTime.IsChecked == true)
+                rbPartTime.IsChecked = false;
+
+            // clearing any warning colours
+            tblkEmpTypeFT.Background = Brushes.White;
+            tblkEmpTypePT.Background = Brushes.White;
+            lbxEmployees.Background = Brushes.White;
+
+            // clearing Monthly Pay Calculation
+            tblkMonthlyPayCalculation.Text = null;
+
+        }// end ClearFields()
+
+
+        /*Method: ShowDetails() (overloaded)
+                  1) Takes in a FullTimeEmployee object
+                  2) Updates the approproate TextBox, Radio and Calculation fields */
+        private void ShowDetails(FullTimeEmployee temp)
+        {
+            tbxFirstN.Text = temp.FirstName;
+            tbxLastN.Text = temp.LastName;
+            rbFullTime.IsChecked = true;
+            tbxSalary.Text = string.Format($"{temp.Salary: ###,##0}");
+            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
+
+        }// end ShowDetails() (FullTimeEmployee)
+
+
+        /*Method: ShowDetails() (overloaded)
+                  1) Takes in a PartTimeEmployee object
+                  2) Updates the approproate TextBox, Radio and Calculation fields */
+        private void ShowDetails(PartTimeEmployee temp)
+        {
+            tbxFirstN.Text = temp.FirstName;
+            tbxLastN.Text = temp.LastName;
+            rbPartTime.IsChecked = true;
+            tbxHourlyRate.Text = string.Format($"{temp.HourlyRate: ##0.00}");
+            tbxHoursWorked.Text = string.Format($"{temp.HoursWorked: ##0.00}");
+            tblkMonthlyPayCalculation.Text = string.Format($"{temp.CalculateMonthlyPay():C0}");
+        }// end ShowDetails() (PartTimeEmployee)
 
 
         /*Method: CreateEmpFT()
@@ -387,5 +405,26 @@ namespace Assessment2
 
             employees.Add(emp);
         }// end CreateEmpFT()
+
+
+
+        /*===================================================================================
+          NOTE: I wasn't entierly sure how to sort a collection, but I found a way to do
+                it from here:
+                https://kiwigis.blogspot.com/2010/03/how-to-sort-obversablecollection.html 
+        ===================================================================================*/
+        /*Method: SortCollection()
+                  1) Takes in an ObservableCollection of Employee objects
+                  2) Creates a temporary ObservableCollection
+                  3) Initialises the temporary collection with Employee objects as they are
+                     being compared in the original collection
+                  4) Returns the temporary collection */
+        private ObservableCollection<Employee> SortCollection(ObservableCollection<Employee> group)
+        {
+            ObservableCollection<Employee> sortedEmployees = new ObservableCollection<Employee>
+                                                                 (group.OrderBy(employee => employee));
+            return sortedEmployees;
+        }// end SortCollection()
+        #endregion
     }// end MainWindow partial class
 }// end Namespace
