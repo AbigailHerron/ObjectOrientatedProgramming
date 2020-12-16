@@ -26,8 +26,8 @@
         <TextBlock x:Name="tblkEmpTypeFT" HorizontalAlignment="Left" Height="16" Margin="469,205,0,0" TextWrapping="Wrap" Text=" FT" VerticalAlignment="Top" Width="18" RenderTransformOrigin="1.471,0.625"/>
         <TextBlock x:Name="tblkLastName" HorizontalAlignment="Left" Margin="339,161,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxSalary" HorizontalAlignment="Left" Height="22" Margin="446,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxSalary_GotFocus"/>
-        <TextBox x:Name="tbxHourlyRate" HorizontalAlignment="Left" Height="22" Margin="446,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxHourlyRate_GotFocus"/>
-        <TextBox x:Name="tbxHoursWorked" HorizontalAlignment="Left" Height="22" Margin="446,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxHoursWorked_GotFocus"/>
+        <TextBox x:Name="tbxHourlyRate" HorizontalAlignment="Left" Height="22" Margin="446,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxHourlyRate_GotFocus" LostFocus="UpdatePay"/>
+        <TextBox x:Name="tbxHoursWorked" HorizontalAlignment="Left" Height="22" Margin="446,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Grid.Row="1" GotFocus="tbxHoursWorked_GotFocus" LostFocus="UpdatePay"/>
         <TextBlock x:Name="tblkSalary" HorizontalAlignment="Left" Height="20" Margin="339,10,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.509,1.375" Grid.Row="1"/>
         <TextBlock x:Name="tblkHourlyRate" HorizontalAlignment="Left" Height="22" Margin="339,69,0,0" TextWrapping="Wrap" Text="Hourly Rate" VerticalAlignment="Top" Width="77" Grid.Row="1"/>
         <TextBlock x:Name="tblkHoursWorked" HorizontalAlignment="Left" Height="17" Margin="339,123,0,0" TextWrapping="Wrap" Text="Hours Worked" VerticalAlignment="Top" Width="77" Grid.Row="1"/>
