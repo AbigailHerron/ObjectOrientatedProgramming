@@ -2,7 +2,7 @@
  Name: Abigail Herron
  ID: S00200536
  Year: 2
- Date: 15/12/20
+ Date: 15/12/20 - 16/12/20
  GitHub Link: https://github.com/AbigailHerron/ObjectOrientatedProgramming/blob/main/Assessment2/Assessment2/FullTimeEmployee.cs
 
  Description: 1) A blueprint for a FullTimeEmployee object
@@ -11,11 +11,6 @@
  Altered Methods: CalculateMonthlyPay, ToString
  Constructors: Default, FirstName, FirstName and LastName, All
  #################################################################################################################################*/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assessment2
 {
